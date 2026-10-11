@@ -10,27 +10,94 @@ st.set_page_config(page_title="Enlil God Tier BM", layout="wide", initial_sideba
 lang = st.sidebar.radio("🌐 Language", ("Türkçe", "English"))
 is_tr = (lang == "Türkçe")
 
-st.title("👁️ Enlil Async - Cloud Optimized Radar")
-st.markdown("*Bulutun sınırlarını aş. Piyasayı asenkron hızla süpür.*" if is_tr else "*Break the cloud limits. Sweep the market with async speed.*")
+st.title("👁️ Enlil Async - Mega Cephanelik" if is_tr else "👁️ Enlil Async - Mega Arsenal")
+st.markdown("*Piyasayı süpür. Yüzdeleri yok et. Kârı al.*" if is_tr else "*Sweep the market. Destroy the percentages. Take the profit.*")
 
-# --- KATEGORİLER VE ÇEVİRİLER ---
+# --- MEGA EŞYA SÖZLÜĞÜ (OYUNDAKİ NEREDEYSE HER ŞEY) ---
 ITEM_NAMES_TR = {
-    "_BAG": "Çanta", "_CAPE": "Pelerin", "_MAIN_SWORD": "Kılıç", "_MAIN_AXE": "Balta",
-    "_MAIN_MACE": "Gürz", "_MAIN_HAMMER": "Çekiç", "_2H_BOW": "Yay", "_2H_CROSSBOW": "Arbalet",
-    "_MAIN_NATURESTAFF": "Doğa Asası", "_MAIN_FIRESTAFF": "Ateş Asası", "_ARMOR_PLATE_SET1": "Plaka Zırh",
-    "_ARMOR_LEATHER_SET1": "Deri Ceket", "_ARMOR_CLOTH_SET1": "Kumaş Cübbe", "_HEAD_PLATE_SET1": "Plaka Kask",
-    "_HEAD_LEATHER_SET1": "Deri Başlık", "_HEAD_CLOTH_SET1": "Kumaş Kukuleta", "_SHOES_PLATE_SET1": "Plaka Çizme",
-    "_SHOES_LEATHER_SET1": "Deri Ayakkabı", "_SHOES_CLOTH_SET1": "Kumaş Sandalet",
-    "_2H_SCYTHE_HELL": "Infernal Scythe", "_2H_AXE": "Savaş Baltası"
+    # Genel
+    "_BAG": "Çanta", "_CAPE": "Normal Pelerin", 
+    # Şehir Pelerinleri
+    "_CAPEITEM_FW_MARTLOCK": "Martlock Pelerini", "_CAPEITEM_FW_LYMHURST": "Lymhurst Pelerini", 
+    "_CAPEITEM_FW_THETFORD": "Thetford Pelerini", "_CAPEITEM_FW_FORTSTERLING": "Fort Sterling Pelerini", 
+    "_CAPEITEM_FW_BRIDGEWATCH": "Bridgewatch Pelerini", "_CAPEITEM_FW_CAERLEON": "Caerleon Pelerini",
+    # Kılıçlar
+    "_MAIN_SWORD": "Tek El Kılıç", "_2H_SWORD": "Çift El Kılıç", "_2H_CLAYMORE": "Claymore", 
+    "_2H_DUALSWORD": "Çifte Kılıç", "_MAIN_SCIMITAR_MORGANA": "Clarent Kılıcı", 
+    "_2H_CLEAVER_HELL": "Carving Kılıcı", "_2H_DUALSCIMITAR_UNDEAD": "Galatine Pair", "_2H_CLAYMORE_AVALON": "Kingmaker",
+    # Baltalar
+    "_MAIN_AXE": "Savaş Baltası", "_2H_AXE": "Büyük Balta", "_2H_HALBERD": "Teber (Halberd)", 
+    "_2H_SCYTHE_HELL": "Infernal Tırpan", "_2H_DUALAXE_KEEPER": "Ayı Pençesi (Bear Paws)", "_MAIN_AXE_AVALON": "Realmbreaker",
+    # Gürzler ve Çekiçler
+    "_MAIN_MACE": "Tek El Gürz", "_2H_MACE": "Ağır Gürz", "_2H_FLAIL": "Sabah Yıldızı", 
+    "_MAIN_ROCKMACE_KEEPER": "Bedrock Gürzü", "_MAIN_HAMMER": "Çekiç", "_2H_HAMMER": "Büyük Çekiç", 
+    "_2H_POLEHAMMER": "Sırıklı Çekiç", "_2H_RAM_KEEPER": "Grovekeeper",
+    # Hançerler ve Mızraklar
+    "_MAIN_DAGGER": "Tek El Hançer", "_2H_DAGGER": "Çifte Hançer", "_2H_CLAW": "Pençe (Claw)", 
+    "_MAIN_DAGGER_HELL": "Kan Mektubu (Bloodletter)", "_2H_DAGGER_UNDEAD": "Deathgivers",
+    "_MAIN_SPEAR": "Mızrak", "_2H_SPEAR": "Pike", "_2H_GLAIVE": "Glaive", "_2H_HARPOON_HELL": "Spirithunter",
+    # Menzilli (Yay, Arbalet)
+    "_2H_BOW": "Yay", "_2H_WARBOW": "Savaş Yayı", "_2H_LONGBOW": "Uzun Yay", "_2H_BOW_KEEPER": "Badon Yayı",
+    "_MAIN_CROSSBOW": "Hafif Arbalet", "_2H_CROSSBOW": "Arbalet", "_2H_CROSSBOWLARGE": "Ağır Arbalet", 
+    "_2H_DUALCROSSBOW_HELL": "Boltcasters", "_2H_REPEATINGCROSSBOW_UNDEAD": "Weeping Repeater",
+    # Asalar (Büyü)
+    "_MAIN_NATURESTAFF": "Doğa Asası", "_2H_NATURESTAFF": "Büyük Doğa Asası", "_2H_WILDSTAFF": "Vahşi Asa", 
+    "_MAIN_FIRESTAFF": "Ateş Asası", "_2H_FIRESTAFF": "Büyük Ateş Asası", "_2H_INFERNOSTAFF": "Cehennem Asası", 
+    "_MAIN_FROSTSTAFF": "Buz Asası", "_2H_FROSTSTAFF": "Büyük Buz Asası", "_2H_GLACIALSTAFF": "Buzul Asası", 
+    "_MAIN_HOLYSTAFF": "Kutsal Asa", "_2H_HOLYSTAFF": "Büyük Kutsal Asa", "_2H_DIVINESTAFF": "İlahi Asa", 
+    "_MAIN_CURSESTAFF": "Lanetli Asa", "_2H_DEMONICSTAFF": "İblis Asası",
+    # İkinci El (Offhands)
+    "_OFF_SHIELD": "Kalkan", "_OFF_TOWERSHIELD": "Kule Kalkanı", "_OFF_BOOK": "Büyü Kitabı", 
+    "_OFF_ORB": "Küresi", "_OFF_TORCH": "Meşale", "_OFF_HORN": "Savaş Borusu",
+    # Plaka Zırhlar
+    "_HEAD_PLATE_SET1": "Asker Kaskı", "_ARMOR_PLATE_SET1": "Asker Zırhı", "_SHOES_PLATE_SET1": "Asker Çizmesi",
+    "_HEAD_PLATE_SET2": "Şövalye Kaskı", "_ARMOR_PLATE_SET2": "Şövalye Zırhı", "_SHOES_PLATE_SET2": "Şövalye Çizmesi",
+    "_HEAD_PLATE_SET3": "Gardiyan Kaskı", "_ARMOR_PLATE_SET3": "Gardiyan Zırhı", "_SHOES_PLATE_SET3": "Gardiyan Çizmesi",
+    # Deri Zırhlar
+    "_HEAD_LEATHER_SET1": "Paralı Asker Başlığı", "_ARMOR_LEATHER_SET1": "Paralı Asker Ceketi", "_SHOES_LEATHER_SET1": "Paralı Asker Ayakkabısı",
+    "_HEAD_LEATHER_SET2": "Avcı Başlığı", "_ARMOR_LEATHER_SET2": "Avcı Ceketi", "_SHOES_LEATHER_SET2": "Avcı Ayakkabısı",
+    "_HEAD_LEATHER_SET3": "Suikastçı Başlığı", "_ARMOR_LEATHER_SET3": "Suikastçı Ceketi", "_SHOES_LEATHER_SET3": "Suikastçı Ayakkabısı",
+    # Kumaş Zırhlar
+    "_HEAD_CLOTH_SET1": "Bilgin Kukuletası", "_ARMOR_CLOTH_SET1": "Bilgin Cübbesi", "_SHOES_CLOTH_SET1": "Bilgin Sandaleti",
+    "_HEAD_CLOTH_SET2": "Ruhban Kukuletası", "_ARMOR_CLOTH_SET2": "Ruhban Cübbesi", "_SHOES_CLOTH_SET2": "Ruhban Sandaleti",
+    "_HEAD_CLOTH_SET3": "Büyücü Kukuletası", "_ARMOR_CLOTH_SET3": "Büyücü Cübbesi", "_SHOES_CLOTH_SET3": "Büyücü Sandaleti",
 }
+
 ITEM_NAMES_EN = {
-    "_BAG": "Bag", "_CAPE": "Cape", "_MAIN_SWORD": "Sword", "_MAIN_AXE": "Axe",
-    "_MAIN_MACE": "Mace", "_MAIN_HAMMER": "Hammer", "_2H_BOW": "Bow", "_2H_CROSSBOW": "Crossbow",
-    "_MAIN_NATURESTAFF": "Nature Staff", "_MAIN_FIRESTAFF": "Fire Staff", "_ARMOR_PLATE_SET1": "Plate Armor",
-    "_ARMOR_LEATHER_SET1": "Leather Jacket", "_ARMOR_CLOTH_SET1": "Cloth Robe", "_HEAD_PLATE_SET1": "Plate Helmet",
-    "_HEAD_LEATHER_SET1": "Leather Hood", "_HEAD_CLOTH_SET1": "Cloth Cowl", "_SHOES_PLATE_SET1": "Plate Boots",
-    "_SHOES_LEATHER_SET1": "Leather Shoes", "_SHOES_CLOTH_SET1": "Cloth Sandals",
-    "_2H_SCYTHE_HELL": "Infernal Scythe", "_2H_AXE": "Battleaxe"
+    "_BAG": "Bag", "_CAPE": "Normal Cape", 
+    "_CAPEITEM_FW_MARTLOCK": "Martlock Cape", "_CAPEITEM_FW_LYMHURST": "Lymhurst Cape", 
+    "_CAPEITEM_FW_THETFORD": "Thetford Cape", "_CAPEITEM_FW_FORTSTERLING": "Fort Sterling Cape", 
+    "_CAPEITEM_FW_BRIDGEWATCH": "Bridgewatch Cape", "_CAPEITEM_FW_CAERLEON": "Caerleon Cape",
+    "_MAIN_SWORD": "Broadsword", "_2H_SWORD": "2H Sword", "_2H_CLAYMORE": "Claymore", 
+    "_2H_DUALSWORD": "Dual Swords", "_MAIN_SCIMITAR_MORGANA": "Clarent Blade", 
+    "_2H_CLEAVER_HELL": "Carving Sword", "_2H_DUALSCIMITAR_UNDEAD": "Galatine Pair", "_2H_CLAYMORE_AVALON": "Kingmaker",
+    "_MAIN_AXE": "Battleaxe", "_2H_AXE": "Greataxe", "_2H_HALBERD": "Halberd", 
+    "_2H_SCYTHE_HELL": "Infernal Scythe", "_2H_DUALAXE_KEEPER": "Bear Paws", "_MAIN_AXE_AVALON": "Realmbreaker",
+    "_MAIN_MACE": "Mace", "_2H_MACE": "Heavy Mace", "_2H_FLAIL": "Morning Star", 
+    "_MAIN_ROCKMACE_KEEPER": "Bedrock Mace", "_MAIN_HAMMER": "Hammer", "_2H_HAMMER": "Great Hammer", 
+    "_2H_POLEHAMMER": "Polehammer", "_2H_RAM_KEEPER": "Grovekeeper",
+    "_MAIN_DAGGER": "Dagger", "_2H_DAGGER": "Dual Daggers", "_2H_CLAW": "Claws", 
+    "_MAIN_DAGGER_HELL": "Bloodletter", "_2H_DAGGER_UNDEAD": "Deathgivers",
+    "_MAIN_SPEAR": "Spear", "_2H_SPEAR": "Pike", "_2H_GLAIVE": "Glaive", "_2H_HARPOON_HELL": "Spirithunter",
+    "_2H_BOW": "Bow", "_2H_WARBOW": "Warbow", "_2H_LONGBOW": "Longbow", "_2H_BOW_KEEPER": "Bow of Badon",
+    "_MAIN_CROSSBOW": "Light Crossbow", "_2H_CROSSBOW": "Crossbow", "_2H_CROSSBOWLARGE": "Heavy Crossbow", 
+    "_2H_DUALCROSSBOW_HELL": "Boltcasters", "_2H_REPEATINGCROSSBOW_UNDEAD": "Weeping Repeater",
+    "_MAIN_NATURESTAFF": "Nature Staff", "_2H_NATURESTAFF": "Great Nature Staff", "_2H_WILDSTAFF": "Wild Staff", 
+    "_MAIN_FIRESTAFF": "Fire Staff", "_2H_FIRESTAFF": "Great Fire Staff", "_2H_INFERNOSTAFF": "Infernal Staff", 
+    "_MAIN_FROSTSTAFF": "Frost Staff", "_2H_FROSTSTAFF": "Great Frost Staff", "_2H_GLACIALSTAFF": "Glacial Staff", 
+    "_MAIN_HOLYSTAFF": "Holy Staff", "_2H_HOLYSTAFF": "Great Holy Staff", "_2H_DIVINESTAFF": "Divine Staff", 
+    "_MAIN_CURSESTAFF": "Cursed Staff", "_2H_DEMONICSTAFF": "Demonic Staff",
+    "_OFF_SHIELD": "Shield", "_OFF_TOWERSHIELD": "Tower Shield", "_OFF_BOOK": "Spellbook", 
+    "_OFF_ORB": "Eye of Secrets", "_OFF_TORCH": "Torch", "_OFF_HORN": "Mistcaller",
+    "_HEAD_PLATE_SET1": "Soldier Helmet", "_ARMOR_PLATE_SET1": "Soldier Armor", "_SHOES_PLATE_SET1": "Soldier Boots",
+    "_HEAD_PLATE_SET2": "Knight Helmet", "_ARMOR_PLATE_SET2": "Knight Armor", "_SHOES_PLATE_SET2": "Knight Boots",
+    "_HEAD_PLATE_SET3": "Guardian Helmet", "_ARMOR_PLATE_SET3": "Guardian Armor", "_SHOES_PLATE_SET3": "Guardian Boots",
+    "_HEAD_LEATHER_SET1": "Mercenary Hood", "_ARMOR_LEATHER_SET1": "Mercenary Jacket", "_SHOES_LEATHER_SET1": "Mercenary Shoes",
+    "_HEAD_LEATHER_SET2": "Hunter Hood", "_ARMOR_LEATHER_SET2": "Hunter Jacket", "_SHOES_LEATHER_SET2": "Hunter Shoes",
+    "_HEAD_LEATHER_SET3": "Assassin Hood", "_ARMOR_LEATHER_SET3": "Assassin Jacket", "_SHOES_LEATHER_SET3": "Assassin Shoes",
+    "_HEAD_CLOTH_SET1": "Scholar Cowl", "_ARMOR_CLOTH_SET1": "Scholar Robe", "_SHOES_CLOTH_SET1": "Scholar Sandals",
+    "_HEAD_CLOTH_SET2": "Cleric Cowl", "_ARMOR_CLOTH_SET2": "Cleric Robe", "_SHOES_CLOTH_SET2": "Cleric Sandals",
+    "_HEAD_CLOTH_SET3": "Mage Cowl", "_ARMOR_CLOTH_SET3": "Mage Robe", "_SHOES_CLOTH_SET3": "Mage Sandals"
 }
 
 # --- SOL PANEL (FİLTRELER) ---
@@ -46,13 +113,15 @@ locations_param = "Black Market," + ",".join(selected_cities)
 st.sidebar.markdown("---")
 st.sidebar.header("📦 Enlil Arama Modülü" if is_tr else "📦 Enlil Search Module")
 
-select_all = st.sidebar.checkbox("Tüm Eşyaları Seç (Sistemi Zorla)" if is_tr else "Select All Items (Push the System)")
+# BU TİK İŞARETLENDİĞİNDE SUNUCULAR YANAR
+select_all = st.sidebar.checkbox("🚨 Tüm Eşyaları Seç (Sistemi Zorla)" if is_tr else "🚨 Select All Items (Push the System)")
 
 if select_all:
     selected_categories = list(ITEM_NAMES_TR.keys())
     selected_tiers = ["T4", "T5", "T6", "T7", "T8"]
     selected_enchants = ["Düz (.0)", ".1", ".2", ".3", ".4"]
     selected_qualities = [1, 2, 3, 4, 5]
+    st.sidebar.warning("⚠️ Bütün cephanelik seçildi! Yüzlerce URL aynı anda ateşlenecek." if is_tr else "⚠️ All arsenal selected! Hundreds of URLs will be fired simultaneously.")
 else:
     selected_categories = st.sidebar.multiselect("Kategoriler" if is_tr else "Categories", list(ITEM_NAMES_TR.keys()), default=["_BAG", "_2H_SCYTHE_HELL", "_MAIN_AXE"], format_func=lambda x: ITEM_NAMES_TR[x] if is_tr else ITEM_NAMES_EN[x])
     selected_tiers = st.sidebar.multiselect("Tier:", ["T4", "T5", "T6", "T7", "T8"], default=["T6", "T7", "T8"])
@@ -73,8 +142,7 @@ BASE_URL = "https://www.albion-online-data.com/api/v2/stats/Prices"
 # --- ASENKRON (ASYNC) BULUT MOTORU ---
 async def fetch_url(session, url):
     try:
-        # aiohttp ile tek thread üzerinden eşzamanlı bağlantı açıyoruz
-        async with session.get(url, timeout=15) as response:
+        async with session.get(url, timeout=20) as response:
             if response.status == 200:
                 return await response.json()
     except:
@@ -85,16 +153,12 @@ async def fetch_all_data_async(items, locs):
     chunk_size = 75
     urls = [f"{BASE_URL}/{','.join(items[i:i + chunk_size])}?locations={locs}" for i in range(0, len(items), chunk_size)]
     
-    # Tüm URL'leri TCP havuzunda asenkron olarak fırlat
     async with aiohttp.ClientSession() as session:
         tasks = [fetch_url(session, url) for url in urls]
         results = await asyncio.gather(*tasks)
     
-    # Gelen listeleri tek bir düz listede birleştir
-    flat_data = [item for sublist in results for item in sublist]
-    return flat_data
+    return [item for sublist in results for item in sublist]
 
-# Streamlit thread'i ile asenkron döngüyü çakışmadan çalıştırmak için sarmalayıcı (wrapper)
 def get_data_sync(items, locs):
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
@@ -129,12 +193,11 @@ with col2:
 
 if not items_list or not selected_cities: st.stop()
 
-with st.spinner(f"🔥 {len(items_list)} Eşya Asenkron Hızda Taranıyor..." if is_tr else f"🔥 Async Scanning {len(items_list)} items..."):
-    # Asenkron motoru burada ateşliyoruz
+with st.spinner(f"🔥 {len(items_list)} Eşya Asenkron Hızda Taranıyor (Bu biraz sürebilir)..." if is_tr else f"🔥 Async Scanning {len(items_list)} items..."):
     raw_data = get_data_sync(items_list, locations_param)
 
 if not raw_data: 
-    st.error("API yanıt vermedi. Albion Data Project sunucuları yoğun olabilir." if is_tr else "API didn't respond. Albion Data Project might be busy.")
+    st.error("API yanıt vermedi veya çok fazla istekten dolayı gecikti." if is_tr else "API didn't respond or delayed due to high volume.")
     st.stop()
 
 df = pd.DataFrame(raw_data)
@@ -160,7 +223,7 @@ else:
 # --- DASHBOARD METRİKLERİ ---
 st.markdown("---")
 m1, m2, m3, m4 = st.columns(4)
-m1.metric("Taranan Eşya" if is_tr else "Items Scanned", len(items_list))
+m1.metric("Taranan Eşya" if is_tr else "Items Scanned", f"{len(items_list):,}")
 m2.metric("Uygun Fırsat" if is_tr else "Opportunities", len(final_df))
 m3.metric("Maksimum Kâr" if is_tr else "Max Profit", f"{int(final_df['net_profit'].max()):,} 🥈" if not final_df.empty else "0")
 m4.metric("En Yüksek ROI" if is_tr else "Best ROI", f"% {final_df['roi_percent'].max():.1f}" if not final_df.empty else "0")
