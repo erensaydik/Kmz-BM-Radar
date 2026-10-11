@@ -19,6 +19,7 @@ UI = {
     "cities": "🗺️ Alım Şehirleri" if is_tr else "🗺️ Buy Cities",
     "cities_desc": "Hangi şehirlerdeki fiyatlara bakılsın?" if is_tr else "Which cities to scan for buying?",
     "items": "📦 Eşya Taraması" if is_tr else "📦 Item Scanner",
+    "search_mode": "Arama Modu:" if is_tr else "Search Mode:",
     "mode_auto": "Kategori ve Seviye Seç (Otomatik)" if is_tr else "Select Category & Tier (Auto)",
     "mode_manual": "Manuel ID Gir (Gelişmiş)" if is_tr else "Enter Manual IDs (Advanced)",
     "cats": "Kategoriler:" if is_tr else "Categories:",
@@ -159,7 +160,6 @@ if not final_df.empty:
     st.success(UI["found"].format(len(final_df)))
     
     display_df = final_df.copy()
-    # ID'leri okunabilir isimlere çevir
     display_df['item_id'] = display_df['item_id'].apply(format_item_name)
     
     display_df['net_profit'] = display_df['net_profit'].astype(int).apply(lambda x: f"{x:,} 🥈")
